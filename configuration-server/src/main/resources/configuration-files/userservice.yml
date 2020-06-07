@@ -1,0 +1,23 @@
+server:
+  port: 8082
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/nc_user
+    username: postgres
+    password: "{cipher}5c5930aff2dbe1d84c98689e07bff329ade5a1a4127619a57d073e85222be68a"
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:5555/r/userservice/authenticated/principal
