@@ -1,0 +1,12 @@
+<nav class="clear-fix">
+  <a routerLink="home" routerLinkActive="active" class="left">Home</a>
+  <a routerLink="search" routerLinkActive="active" class="left">Search</a>
+
+  <a *ngIf="!authService.isAuth" routerLink="login" routerLinkActive="active" class="right">Log In</a>
+  <a *ngIf="!authService.isAuth" routerLink="signup" routerLinkActive="active" class="right">Sign Up</a>
+
+  <button *ngIf="authService.isAuth" (click)="logOut()" class="right pointer">Log Out</button>
+  <a *ngIf="authService.isAuth" routerLink="personal" routerLinkActive="active" class="right">Personal</a>
+</nav>
+
+<router-outlet></router-outlet>
